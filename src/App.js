@@ -14,8 +14,10 @@ const defaultTodos = [
 function App() {
   return (
     <>
-      <TodoCounter completed="1" total="2"/>
-
+      <div class="banner">
+        <h1>Tus Tareas</h1>
+        <TodoCounter completed="1" total="2"/>
+      </div>
       <TodoList>
         {defaultTodos.map(todo => (
           <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
