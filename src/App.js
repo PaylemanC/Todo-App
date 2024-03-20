@@ -18,13 +18,16 @@ function App() {
         <h1>Tus Tareas</h1>
         <TodoCounter completed="1" total="2"/>
       </div>
-      <TodoList>
-        {defaultTodos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
-        ))}
-      </TodoList>
-
-      <CreateTodoButton/>
+      <div class="list-container">
+        <TodoList>
+          {defaultTodos.map(todo => (
+            <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
+          ))}
+        </TodoList>
+      </div>
+      <div class="btn-container">
+        <CreateTodoButton/>
+      </div>
     </>
   );
 }
