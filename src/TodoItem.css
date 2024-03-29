@@ -1,7 +1,8 @@
 li {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: auto 1fr auto; 
+    align-items: center;
+    gap: 12px;
     list-style: none;
     padding: 16px;
     border: 1px solid #e3e3e3;
@@ -79,4 +80,11 @@ li {
     100% {
      transform: scale(1);
     }
+}
+
+.delete-btn {
+    line-height: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }

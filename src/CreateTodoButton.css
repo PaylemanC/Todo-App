@@ -1,4 +1,4 @@
-button {
+.create-btn {
     display: flex;
     align-items: center;
     border: none;
@@ -12,7 +12,7 @@ button {
     transition: transform 0.3s ease; 
 }
 
-button:hover {
+.create-btn:hover {
     background-color: #4c49a2;
     transform: scale(1.02);
 }

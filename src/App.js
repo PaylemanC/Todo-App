@@ -10,7 +10,8 @@ import './App.css';
 
 const defaultTodos = [
   { text: '+ Crea tareas a partir del botón "Añade una tarea".', completed: false },
-  { text: '✔ Completa tareas clickeando el botón a la derecha de cada tarea.', completed: false },
+  { text: '✔ Completa tareas clickeando el botón a la izquierda de cada tarea.', completed: false },
+  { text: 'X Elimina tareas clickeando el botón a la derecha de cada tarea.', completed: false },
 ]
 
 function App() {
