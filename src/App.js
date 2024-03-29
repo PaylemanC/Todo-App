@@ -15,21 +15,29 @@ const defaultTodos = [
 ]
 
 function App() {
+  // Lista de TODOs.
   const [todos, setTodos] = React.useState(defaultTodos); 
 
+  // Contador de tareas & tareas completadas.
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length; 
+
+  //Buscador.
+  const [searchValue, setSearchValue] = React.useState('');
+  const searchedTodos = todos.filter((todo) => {
+    return todo.text.toLowerCase().includes(searchValue.toLowerCase());
+  })
 
   return (
     <>
       <div class="banner">
         <h1>Tus Tareas</h1>
         <TodoCounter completed={completedTodos} total={totalTodos}/>
-        <TodoSearch/>
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       </div>
       <div class="list-container">
         <TodoList>
-          {defaultTodos.map(todo => (
+          {searchedTodos.map(todo => (
             <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
           ))}
         </TodoList>
