@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
@@ -17,6 +18,7 @@ function App() {
       <div class="banner">
         <h1>Tus Tareas</h1>
         <TodoCounter completed="1" total="2"/>
+        <TodoSearch/>
       </div>
       <div class="list-container">
         <TodoList>
