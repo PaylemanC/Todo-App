@@ -9,6 +9,10 @@ li {
     border-radius: 8px;
 }
 
+.line-through {
+    text-decoration: line-through;
+}
+
 .checkbox-container input {
     position: absolute;
     opacity: 0;
