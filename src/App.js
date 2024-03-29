@@ -28,6 +28,14 @@ function App() {
     return todo.text.toLowerCase().includes(searchValue.toLowerCase());
   })
 
+  // Eliminar to do.
+  const deleteTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(todo => todo.text === text);
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  }
+
   return (
     <>
       <div class="banner">
@@ -38,7 +46,12 @@ function App() {
       <div class="list-container">
         <TodoList>
           {searchedTodos.map(todo => (
-            <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text} 
+              completed={todo.completed} 
+              onDeleted={() => deleteTodo(todo.text) }
+            />
           ))}
         </TodoList>
       </div>
