@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLayoutEffect } from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -8,16 +9,21 @@ import logo from './platzi.webp';
 import './App.css';
 
 const defaultTodos = [
-  { text: 'Hacer 45min de programación diaria', completed: true },
-  { text: 'Terminar curso de React.js', completed: false },
+  { text: '+ Crea tareas a partir del botón "Añade una tarea".', completed: false },
+  { text: '✔ Completa tareas clickeando el botón a la derecha de cada tarea.', completed: false },
 ]
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos); 
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length; 
+
   return (
     <>
       <div class="banner">
         <h1>Tus Tareas</h1>
-        <TodoCounter completed="1" total="2"/>
+        <TodoCounter completed={completedTodos} total={totalTodos}/>
         <TodoSearch/>
       </div>
       <div class="list-container">
