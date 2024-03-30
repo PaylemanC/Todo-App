@@ -5,6 +5,7 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import { TbTrash } from "react-icons/tb";
 import logo from './platzi.webp';
 import './App.css';
 
