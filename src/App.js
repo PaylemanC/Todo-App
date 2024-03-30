@@ -39,12 +39,12 @@ function App() {
 
   return (
     <>
-      <div class="banner">
+      <div className="banner">
         <h1>Tus Tareas</h1>
         <TodoCounter completed={completedTodos} total={totalTodos}/>
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       </div>
-      <div class="list-container">
+      <div className="list-container">
         <TodoList>
           {searchedTodos.map(todo => (
             <TodoItem 
@@ -56,7 +56,7 @@ function App() {
           ))}
         </TodoList>
       </div>
-      <div class="btn-container">
+      <div className="btn-container">
         <CreateTodoButton/>
       </div>
     </>

@@ -2,7 +2,7 @@ import './TodoSearch.css';
 
 function TodoSearch({ searchValue, setSearchValue }) {
     return (
-        <div class="search-bar--container">
+        <div className="search-bar--container">
             <input 
                 type="text" 
                 placeholder="Buscar tarea..." 
