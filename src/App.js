@@ -15,26 +15,30 @@ import './App.css';
 // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
 // localStorage.removeItem('TODOS_V1');
 
+function useLocalStorage(itemName, initialValue) { 
+  const localStorageItem = localStorage.getItem(itemName); 
+  let parsedItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem); 
+  }
+
+  const [item, setItem] = React.useState(parsedItem); 
+  
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  }
+
+  return [item, saveItem]
+}
+
 
 function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1'); 
-  let parsedTodos;
-
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
-  // Lista de TODOs.
-  const [todos, setTodos] = React.useState(parsedTodos); 
-
-  // Guardar TODOs en localStorage.
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
-    setTodos(newTodos);
-  }
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
   // Contador de tareas & tareas completadas.
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -51,7 +55,6 @@ function App() {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(todo => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
     saveTodos(newTodos);
   }
 
