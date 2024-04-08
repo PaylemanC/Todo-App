@@ -8,16 +8,21 @@ import { CreateTodoButton } from './CreateTodoButton';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import './App.css';
 
+// localStorage.removeItem('TODOS_V1');
 // const defaultTodos = [
 //   { text: '+ Crea tareas a partir del botón "Añade una tarea".', completed: false },
 //   { text: '✔ Completa tareas clickeando el botón a la izquierda de cada tarea.', completed: false },
 //   { text: 'X Elimina tareas clickeando el botón a la derecha de cada tarea.', completed: false },
 // ]
 // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
-// localStorage.removeItem('TODOS_V1');
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos, 
+    saveItem: saveTodos, 
+    loading, 
+    error
+  } = useLocalStorage('TODOS_V1', []);
 
   // Contador de tareas & tareas completadas.
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -46,6 +51,9 @@ function App() {
       </div>
       <div className="list-container">
         <TodoList>
+          { loading && <p>Cargando...</p> }
+          { error && <p>Ocurrió un error inesperado.</p> }
+          { (!loading && searchedTodos.length === 0) && <p>¡Crea tu primer TODO!</p>}
           {searchedTodos.map(todo => (
             <TodoItem 
               key={todo.text} 
