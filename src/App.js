@@ -5,6 +5,7 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import { TodosLoading } from './TodosLoading';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import './App.css';
 
@@ -50,10 +51,10 @@ function App() {
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
       </div>
       <div className="list-container">
+          { loading && <TodosLoading/> }
+          { error && <p className="message">Ocurrió un error inesperado.</p> }
+          { (!loading && searchedTodos.length === 0) && <p className="message">¡Crea tu primer TODO!</p>}
         <TodoList>
-          { loading && <p>Cargando...</p> }
-          { error && <p>Ocurrió un error inesperado.</p> }
-          { (!loading && searchedTodos.length === 0) && <p>¡Crea tu primer TODO!</p>}
           {searchedTodos.map(todo => (
             <TodoItem 
               key={todo.text} 
