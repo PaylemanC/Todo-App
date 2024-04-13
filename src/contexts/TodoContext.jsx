@@ -21,10 +21,16 @@ function TodoProvider({ children }) {
         return todo.text.toLowerCase().includes(searchValue.toLowerCase());
     })
 
+    //Generador de id de todo. 
+    const generateRandomKey = () => {
+        return Math.floor(Math.random() * 1000000); 
+    };   
+
     // Agregar to do. 
     const addTodo = (text) => {
         const newTodos = [...todos];
         newTodos.unshift({
+            id: generateRandomKey(),
             text,
             completed: false
         })
@@ -32,9 +38,9 @@ function TodoProvider({ children }) {
     } 
 
     // Eliminar to do.
-    const deleteTodo = (text) => {
+    const deleteTodo = (id) => {
         const newTodos = [...todos];
-        const todoIndex = newTodos.findIndex(todo => todo.text === text);
+        const todoIndex = newTodos.findIndex(todo => todo.id === id);
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     }
