@@ -21,6 +21,16 @@ function TodoProvider({ children }) {
         return todo.text.toLowerCase().includes(searchValue.toLowerCase());
     })
 
+    // Agregar to do. 
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.unshift({
+            text,
+            completed: false
+        })
+        saveTodos(newTodos);
+    } 
+
     // Eliminar to do.
     const deleteTodo = (text) => {
         const newTodos = [...todos];
@@ -38,6 +48,7 @@ function TodoProvider({ children }) {
             searchValue,
             setSearchValue,
             searchedTodos,
+            addTodo,
             deleteTodo
         }}>
             { children } 
