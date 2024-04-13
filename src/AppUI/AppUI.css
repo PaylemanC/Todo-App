@@ -1,0 +1,25 @@
+.banner {
+    padding: 16px;
+    background: linear-gradient(to right, rgba(40,40,40,0.4), transparent), url('../banner.jpg') no-repeat center / cover; 
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.message {
+    margin: 16px;
+    color: grey;
+    font-size: 2.1rem;
+}
+  
+.btn-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
