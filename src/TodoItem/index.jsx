@@ -1,11 +1,11 @@
 import './TodoItem.css';
 import { TbTrash } from "react-icons/tb";
 
-function TodoItem({ text, completed, onDeleted }) {
+function TodoItem({ text, completed, onDeleted, onCompleted }) {
     return (
         <li>
             <label className="checkbox-container">
-                <input type="checkbox" defaultChecked={completed} />
+                <input type="checkbox" defaultChecked={completed} onClick={onCompleted} />
                 <span className="checkmark"></span>
             </label>
             <p className={`${completed && 'line-through'}`}>{text}</p>

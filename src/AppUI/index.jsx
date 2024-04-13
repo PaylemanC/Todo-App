@@ -12,7 +12,7 @@ import { TodoContext } from '../contexts/TodoContext';
 import { ModalContext } from '../contexts/ModalContext';
 
 function AppUI() {
-    const { loading, error, totalTodos, searchedTodos, deleteTodo } = React.useContext(TodoContext);
+    const { loading, error, totalTodos, searchedTodos, finishTodo, deleteTodo } = React.useContext(TodoContext);
     const { openModal } = React.useContext(ModalContext); 
 
     return (
@@ -37,6 +37,7 @@ function AppUI() {
                     key={todo.id} 
                     text={todo.text} 
                     completed={todo.completed} 
+                    onCompleted={ () => finishTodo(todo.id) } 
                     onDeleted={() => deleteTodo(todo.id) }
                     />
                 ))}

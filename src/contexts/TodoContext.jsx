@@ -37,6 +37,14 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
     } 
 
+    //Completar to do.
+    const finishTodo = (id) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex(todo => todo.id === id);
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+    }
+
     // Eliminar to do.
     const deleteTodo = (id) => {
         const newTodos = [...todos];
@@ -55,7 +63,8 @@ function TodoProvider({ children }) {
             setSearchValue,
             searchedTodos,
             addTodo,
-            deleteTodo
+            finishTodo,
+            deleteTodo,
         }}>
             { children } 
         </TodoContext.Provider>
