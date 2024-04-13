@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppUI } from './AppUI';
 import { TodoProvider } from './contexts/TodoContext';
+import { ModalProvider } from './contexts/ModalContext';
 import './App.css';
 
 // localStorage.removeItem('TODOS_V1');
@@ -14,7 +15,9 @@ import './App.css';
 function App() {
   return (
     <TodoProvider>
-      <AppUI/>
+      <ModalProvider>
+        <AppUI/>
+      </ModalProvider>
     </TodoProvider>
   );
 }
