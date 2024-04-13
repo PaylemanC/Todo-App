@@ -12,7 +12,7 @@ import { TodoContext } from '../contexts/TodoContext';
 import { ModalContext } from '../contexts/ModalContext';
 
 function AppUI() {
-    const { loading, error, searchedTodos, deleteTodo } = React.useContext(TodoContext);
+    const { loading, error, totalTodos, searchedTodos, deleteTodo } = React.useContext(TodoContext);
     const { openModal } = React.useContext(ModalContext);
 
     return (
@@ -25,7 +25,12 @@ function AppUI() {
             <div className="list-container">
                 { loading && <TodosLoading/> }
                 { error && <p className="message">Ocurrió un error inesperado.</p> }
-                { (!loading && searchedTodos.length === 0) && <p className="message">¡Crea tu primer TODO!</p>}
+                {!loading && (
+                    (searchedTodos.length === 0 && totalTodos <= 0) ? (
+                        <p className="message">¡Crea tu primer TODO!</p>) 
+                    : 
+                    ((searchedTodos.length === 0 && totalTodos > 0) && <p className="message">Ningún TODO coincide con la búsqueda.</p>)
+                )}
                 <TodoList>
                 {searchedTodos.map(todo => (
                     <TodoItem 
