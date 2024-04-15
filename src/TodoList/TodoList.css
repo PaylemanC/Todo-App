@@ -1,0 +1,8 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px;
+    width: 90%;
+    max-width: 680px;
+}

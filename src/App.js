@@ -1,24 +1,24 @@
-import logo from './platzi.webp';
+import React from 'react';
+import { AppUI } from './AppUI';
+import { TodoProvider } from './contexts/TodoContext';
+import { ModalProvider } from './contexts/ModalContext';
 import './App.css';
+
+// localStorage.removeItem('TODOS_V1');
+// const defaultTodos = [
+//   { id: 1, text: '+ Crea tareas a partir del botón "Añade una tarea".', completed: false },
+//   { id: 2, text: '✔ Completa tareas clickeando el botón a la izquierda de cada tarea.', completed: false },
+//   { id: 3, text: 'X Elimina tareas clickeando el botón a la derecha de cada tarea.', completed: false },
+// ]
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodoProvider>
+      <ModalProvider>
+        <AppUI/>
+      </ModalProvider>
+    </TodoProvider>
   );
 }
 

@@ -1,0 +1,94 @@
+li {
+    display: grid;
+    grid-template-columns: auto 1fr auto; 
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+    padding: 16px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0px 3px 4px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+   
+.checkbox-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 2rem;
+    user-select: none;
+}
+   
+.checkmark {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #605ebf;
+    animation: pop 0.5s;
+    animation-direction: alternate;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+   
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+   
+@keyframes pop {
+    0% {
+     transform: scale(1);
+    }
+   
+    50% {
+     transform: scale(0.9);
+    }
+   
+    100% {
+     transform: scale(1);
+    }
+}
+
+.delete-btn {
+    line-height: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.delete-btn svg {
+    font-size: 2.4rem;
+}

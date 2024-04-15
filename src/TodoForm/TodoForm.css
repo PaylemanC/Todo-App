@@ -1,0 +1,37 @@
+form {
+    width: 80vw;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.todo-form--title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.todo-form--content {
+    min-height: 120px;
+    padding: 12px 16px;
+    font-size: 1.6rem;
+    border: 1px solid #9f9f9f;
+    font-family: inherit;
+    border-radius: 4px;
+    /* background-color: #f1f1f1; */
+}
+
+.todo-form--content:focus-visible {
+    outline: #605ebf auto 2px;
+}
+
+.todo-form--add-btn {
+    width: fit-content;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #605ebf;
+    color: white;
+    cursor: pointer;
+}
+
